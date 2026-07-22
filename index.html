@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/matter-js@0.19.0/build/matter.min.js"></script>
 <style>
 body{margin:0;background:oklch(0.97 0.01 90);color:oklch(0.28 0.03 250)}
 *{box-sizing:border-box}
@@ -182,18 +183,35 @@ html{scroll-behavior:smooth}
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  const { Engine, Bodies, Body, Composite } = Matter;
+  const engine = Engine.create();
+  engine.gravity.y = 1;
+  engine.enableSleeping = true;
+  const world = engine.world;
+
+  const groundYFrac = 0.86;
+  let groundBody = null, leftWall = null, rightWall = null;
+
   const resize = () => {
     const cw = window.innerWidth, ch = window.innerHeight;
     canvas.width = cw * dpr;
     canvas.height = ch * dpr;
+    const w = canvas.width, h = canvas.height;
+    const groundY = h * groundYFrac;
+    if (groundBody) Composite.remove(world, [groundBody, leftWall, rightWall]);
+    groundBody = Bodies.rectangle(w / 2, groundY + 50 * dpr, w * 2, 100 * dpr, { isStatic: true, friction: 0.7 });
+    leftWall = Bodies.rectangle(-20 * dpr, h / 2, 40 * dpr, h * 3, { isStatic: true });
+    rightWall = Bodies.rectangle(w + 20 * dpr, h / 2, 40 * dpr, h * 3, { isStatic: true });
+    Composite.add(world, [groundBody, leftWall, rightWall]);
   };
   resize();
   window.addEventListener('resize', resize);
 
   const palettes = [200, 340, 140, 60, 280, 25];
   const kinds = ['chip', 'gear', 'satellite', 'battery'];
-  let blocks = [];
-  const groundYFrac = 0.86;
+  let bodyList = [];
+  const meta = new Map();
   const randomSpec = () => ({
     hue: palettes[Math.floor(Math.random() * palettes.length)],
     kind: kinds[Math.floor(Math.random() * kinds.length)]
@@ -215,8 +233,23 @@ html{scroll-behavior:smooth}
   const spawn = (x) => {
     const { hue, kind } = nextSpec;
     const size = 0.85 + Math.random() * 0.35;
-    blocks.push({ x, y: -40 * dpr, vy: 0, rot: 0, vrot: (Math.random() - 0.5) * 0.25, settled: false, bounces: 0, hue, kind, size, h: 18 * dpr * size, squash: 1 });
-    if (blocks.length > 150) blocks.shift();
+    const s = 15 * dpr;
+    const bw = s * 1.5 * size, bh = s * 1.2 * size;
+    const body = Bodies.rectangle(x, -40 * dpr, bw, bh, {
+      friction: 0.6,
+      frictionAir: 0.01,
+      restitution: 0.2,
+      angle: (Math.random() - 0.5) * 0.3
+    });
+    Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.15);
+    meta.set(body.id, { hue, kind, size });
+    Composite.add(world, body);
+    bodyList.push(body);
+    if (bodyList.length > 150) {
+      const old = bodyList.shift();
+      meta.delete(old.id);
+      Composite.remove(world, old);
+    }
     nextSpec = randomSpec();
     drawPreview();
   };
@@ -289,7 +322,13 @@ html{scroll-behavior:smooth}
     ctx.restore();
   };
 
+  let lastTime = performance.now();
   const draw = () => {
+    const now = performance.now();
+    const delta = Math.min(now - lastTime, 33);
+    lastTime = now;
+    Engine.update(engine, delta);
+
     const w = canvas.width, h = canvas.height;
     ctx.clearRect(0, 0, w, h);
     ctx.strokeStyle = 'oklch(0.85 0.03 230 / 0.6)'; ctx.lineWidth = 1 * dpr;
@@ -299,35 +338,11 @@ html{scroll-behavior:smooth}
     const groundY = h * groundYFrac;
     ctx.strokeStyle = 'oklch(0.55 0.05 230 / 0.8)'; ctx.lineWidth = 2*dpr;
     ctx.beginPath(); ctx.moveTo(0, groundY); ctx.lineTo(w, groundY); ctx.stroke();
-    const OVERLAP = 40 * dpr;
 
-    blocks.forEach(d => {
-      if (!d.settled) {
-        d.vy += 0.9 * dpr;
-        if (d.vy > 26 * dpr) d.vy = 26 * dpr;
-        d.y += d.vy;
-        d.rot += d.vrot;
-
-        let floorAt = groundY - d.h * 0.5;
-        blocks.forEach(o => {
-          if (o !== d && o.settled && Math.abs(o.x - d.x) < OVERLAP) {
-            const stackTop = o.y - o.h * 0.5 - d.h * 0.5;
-            if (stackTop < floorAt) floorAt = stackTop;
-          }
-        });
-        if (d.y > floorAt) {
-          const impact = d.vy;
-          d.y = floorAt;
-          if (Math.abs(impact) > 1 * dpr && d.bounces < 2) {
-            d.vy *= -0.35; d.vrot *= 0.4; d.bounces++; d.squash = 0.72;
-          } else {
-            d.vy = 0; d.vrot *= 0.6; if (Math.abs(d.vrot) < 0.002) d.vrot = 0;
-            d.settled = true; d.squash = 0.75;
-          }
-        }
-      }
-      d.squash += (1 - d.squash) * 0.25;
-      drawBlock(ctx, d.x, d.y, d.rot, d.squash, d.hue, d.kind, d.size);
+    bodyList.forEach(body => {
+      const m = meta.get(body.id);
+      if (!m) return;
+      drawBlock(ctx, body.position.x, body.position.y, body.angle, 1, m.hue, m.kind, m.size);
     });
 
     requestAnimationFrame(draw);
