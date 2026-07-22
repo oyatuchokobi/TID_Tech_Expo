@@ -2,100 +2,229 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TID Tech Expo 2026 | 出展者募集</title>
-<script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --color-bg: #F8F9FB;
-    --color-text: #192837;
-    --color-accent-purple: #7342E2;
-    --color-accent-blue: #3B82F6;
-    --color-glass-bg: rgba(255, 255, 255, 0.55);
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { overflow-x: hidden; }
-  body {
-    font-family: 'Noto Sans JP', sans-serif;
-    background: var(--color-bg);
-    color: var(--color-text);
-  }
-
-  .orb-field {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    overflow: hidden;
-    pointer-events: none;
-  }
-  .orb {
-    position: absolute;
-    border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), var(--color-accent-purple) 40%, var(--color-accent-blue) 100%);
-    filter: blur(1px);
-    opacity: 0.55;
-    animation: float ease-in-out infinite;
-  }
-  @keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-24px) rotate(8deg); }
-  }
+body{margin:0;background:oklch(0.97 0.01 90);color:oklch(0.28 0.03 250)}
+*{box-sizing:border-box}
+a{color:oklch(0.5 0.15 25);text-decoration:none}
+a:hover{color:oklch(0.58 0.15 25)}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 </style>
 </head>
 <body>
-  <div class="relative w-full min-h-screen">
-    <div class="orb-field" aria-hidden="true">
-      <div class="orb" style="width:120px; height:120px; top:8%; left:6%; animation-duration:9s; animation-delay:0s;"></div>
-      <div class="orb" style="width:70px; height:70px; top:18%; left:82%; animation-duration:7s; animation-delay:1.2s;"></div>
-      <div class="orb" style="width:160px; height:160px; top:55%; left:88%; animation-duration:10s; animation-delay:0.5s;"></div>
-      <div class="orb" style="width:50px; height:50px; top:70%; left:12%; animation-duration:6s; animation-delay:2s;"></div>
-      <div class="orb" style="width:90px; height:90px; top:40%; left:4%; animation-duration:8s; animation-delay:3s;"></div>
-    </div>
 
-    <!-- NAVBAR -->
-    <header class="relative z-10 max-w-[1280px] mx-auto px-5 sm:px-8 py-4 sm:py-5 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-2">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-          <path d="M4 4H28V10H20V28H12V10H4V4Z" fill="var(--color-text)"/>
-        </svg>
-        <span class="font-bold text-base" style="font-weight:700;">TID Tech Expo</span>
-      </a>
+<div style="font-family:'Noto Sans JP',sans-serif;min-height:100vh;position:relative;overflow-x:hidden">
 
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
-        <a href="#about" class="hover:opacity-70 transition-opacity">About</a>
-        <a href="#program" class="hover:opacity-70 transition-opacity">Program</a>
-        <a href="#entry" class="hover:opacity-70 transition-opacity">Entry</a>
-        <a href="#overview" class="hover:opacity-70 transition-opacity">Overview</a>
-      </nav>
+<header style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px 32px;background:oklch(0.97 0.01 90 / 0.8);backdrop-filter:blur(10px);border-bottom:1px solid oklch(0.7 0.02 250 / 0.5)">
+<div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;letter-spacing:0.04em;color:oklch(0.28 0.03 250)">TID TECH EXPO <span style="color:oklch(0.5 0.15 25)">2026</span></div>
+<!-- TODO: 外部応募フォームURLをここに設定 -->
+<a href="https://forms.google.com/..." target="_blank" rel="noopener" style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;color:oklch(0.99 0 0);background:oklch(0.5 0.15 25);padding:10px 22px;border-radius:2px;letter-spacing:0.02em">出展申込</a>
+</header>
 
-      <div class="hidden md:flex items-center">
-        <!-- TODO: 外部応募フォームURLをここに設定 -->
-        <a href="https://forms.google.com/..." target="_blank" rel="noopener"
-           class="rounded-full px-5 py-2.5 text-white text-sm font-semibold transition-transform hover:scale-105"
-           style="background: var(--color-accent-purple);">
-          出展エントリー
-        </a>
-      </div>
+<section style="position:relative;min-height:100vh;display:flex;align-items:center;padding:96px 32px 60px;background:oklch(0.97 0.01 90)">
+<canvas id="hero-canvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:0;cursor:pointer"></canvas>
+<div style="position:relative;z-index:1;max-width:640px;pointer-events:none">
+<div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:0.2em;color:oklch(0.5 0.15 25);margin-bottom:18px">TID TECH EXPO 2026</div>
+<h1 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:56px;line-height:1.1;margin:0 0 22px;text-wrap:pretty;color:oklch(0.28 0.03 250)">技術をつなぎ、<br>未来を組み立てる。</h1>
+<p style="font-size:16px;line-height:1.9;color:oklch(0.42 0.02 250);margin:0 0 34px;max-width:480px">学生・教職員が創り上げる技術と発想が集う展示会。それぞれの分野から生まれたアイデアが、ひとつの未来へとかたちになっていきます。</p>
+<div style="display:flex;gap:16px;flex-wrap:wrap;pointer-events:auto">
+<!-- TODO: 外部応募フォームURLをここに設定 -->
+<a href="https://forms.google.com/..." target="_blank" rel="noopener" style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;color:oklch(0.99 0 0);background:oklch(0.5 0.15 25);padding:16px 32px;border-radius:2px;white-space:nowrap">出展申込へ進む →</a>
+<a href="#overview" style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;color:oklch(0.28 0.03 250);border:1px solid oklch(0.6 0.02 250);padding:16px 32px;border-radius:2px;white-space:nowrap">開催概要を見る</a>
+</div>
+<div style="margin-top:18px;font-size:12px;color:oklch(0.55 0.02 250)">クリックすると技術ブロックが降ってくるよ</div>
+</div>
+</section>
 
-      <button id="mobile-menu-btn" class="md:hidden" aria-label="メニューを開く">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-text)" stroke-width="2">
-          <line x1="3" y1="6" x2="21" y2="6"/>
-          <line x1="3" y1="12" x2="21" y2="12"/>
-          <line x1="3" y1="18" x2="21" y2="18"/>
-        </svg>
-      </button>
-    </header>
+<section id="overview" style="position:relative;z-index:2;padding:100px 32px;background:oklch(0.97 0.01 90);border-top:1px solid oklch(0.7 0.02 250 / 0.5)">
+<div style="max-width:1100px;margin:0 auto">
+<div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:0.2em;color:oklch(0.5 0.15 25);margin-bottom:14px">OVERVIEW</div>
+<h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:34px;margin:0 0 48px;color:oklch(0.28 0.03 250)">開催概要</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:oklch(0.7 0.02 250 / 0.5);border:1px solid oklch(0.7 0.02 250 / 0.5)">
+<div style="background:oklch(0.93 0.015 90);padding:28px"><div style="font-size:12px;color:oklch(0.5 0.02 250);margin-bottom:10px;letter-spacing:0.05em">開催日</div><div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;color:oklch(0.28 0.03 250)">2026年11月14日(土)</div></div>
+<div style="background:oklch(0.93 0.015 90);padding:28px"><div style="font-size:12px;color:oklch(0.5 0.02 250);margin-bottom:10px;letter-spacing:0.05em">会場</div><div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;color:oklch(0.28 0.03 250)">TIDホール メインアリーナ</div></div>
+<div style="background:oklch(0.93 0.015 90);padding:28px"><div style="font-size:12px;color:oklch(0.5 0.02 250);margin-bottom:10px;letter-spacing:0.05em">出展対象</div><div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;color:oklch(0.28 0.03 250)">学生・教職員</div></div>
+<div style="background:oklch(0.93 0.015 90);padding:28px"><div style="font-size:12px;color:oklch(0.5 0.02 250);margin-bottom:10px;letter-spacing:0.05em">来場対象</div><div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;color:oklch(0.28 0.03 250)">一般公開・入場無料</div></div>
+</div>
+</div>
+</section>
 
-    <!-- HERO -->
+<section style="position:relative;z-index:2;padding:100px 32px;background:oklch(0.93 0.015 90)">
+<div style="max-width:1100px;margin:0 auto">
+<div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:0.2em;color:oklch(0.5 0.15 25);margin-bottom:14px">HIGHLIGHTS</div>
+<h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:34px;margin:0 0 48px;color:oklch(0.28 0.03 250)">EXPOの見どころ</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px">
+<div style="border:1px solid oklch(0.7 0.02 250 / 0.6);padding:32px;border-radius:4px;background:oklch(0.97 0.01 90)">
+<div style="width:44px;height:44px;border:1px solid oklch(0.5 0.15 25);border-radius:50%;margin-bottom:22px"></div>
+<h3 style="font-family:'Space Grotesk',sans-serif;font-size:19px;margin:0 0 12px;color:oklch(0.28 0.03 250)">最先端の研究展示</h3>
+<p style="font-size:14px;line-height:1.8;color:oklch(0.45 0.02 250);margin:0">AI・ロボティクス・IoTなど各分野の研究成果を、実際に手に取り体験できる展示形式で紹介します。</p>
+</div>
+<div style="border:1px solid oklch(0.7 0.02 250 / 0.6);padding:32px;border-radius:4px;background:oklch(0.97 0.01 90)">
+<div style="width:44px;height:44px;border:1px solid oklch(0.5 0.15 25);border-radius:50%;margin-bottom:22px"></div>
+<h3 style="font-family:'Space Grotesk',sans-serif;font-size:19px;margin:0 0 12px;color:oklch(0.28 0.03 250)">学生発のプロダクト</h3>
+<p style="font-size:14px;line-height:1.8;color:oklch(0.45 0.02 250);margin:0">授業や研究室から生まれたプロジェクトを、学生自身がプレゼンテーションします。</p>
+</div>
+<div style="border:1px solid oklch(0.7 0.02 250 / 0.6);padding:32px;border-radius:4px;background:oklch(0.97 0.01 90)">
+<div style="width:44px;height:44px;border:1px solid oklch(0.5 0.15 25);border-radius:50%;margin-bottom:22px"></div>
+<h3 style="font-family:'Space Grotesk',sans-serif;font-size:19px;margin:0 0 12px;color:oklch(0.28 0.03 250)">分野を越えた交流</h3>
+<p style="font-size:14px;line-height:1.8;color:oklch(0.45 0.02 250);margin:0">異なる専門分野の出展者・来場者が集まり、新しいアイデアが生まれる場をつくります。</p>
+</div>
+</div>
+</div>
+</section>
 
-  </div>
+<section style="position:relative;z-index:2;padding:120px 32px;background:oklch(0.97 0.01 90);text-align:center">
+<div style="max-width:640px;margin:0 auto">
+<div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:0.2em;color:oklch(0.5 0.15 25);margin-bottom:18px">JOIN AS AN EXHIBITOR</div>
+<h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:38px;margin:0 0 22px;text-wrap:pretty;color:oklch(0.28 0.03 250)">あなたのアイデアを、<br>展示というかたちに。</h2>
+<p style="font-size:15px;line-height:1.9;color:oklch(0.45 0.02 250);margin:0 0 40px">出展対象は学生・教職員の方。研究・制作物・プロダクトなど、分野は問いません。</p>
+<!-- TODO: 外部応募フォームURLをここに設定 -->
+<a href="https://forms.google.com/..." target="_blank" rel="noopener" style="display:inline-block;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;color:oklch(0.99 0 0);background:oklch(0.5 0.15 25);padding:18px 44px;border-radius:2px">出展申込へ進む →</a>
+</div>
+</section>
 
-  <!-- MOBILE MENU -->
+<footer style="position:relative;z-index:2;padding:36px 32px;background:oklch(0.93 0.015 90);border-top:1px solid oklch(0.7 0.02 250 / 0.5);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:oklch(0.5 0.02 250)">
+<div>TID TECH EXPO 2026</div>
+<div>主催:TID</div>
+</footer>
 
-  <script>
-  </script>
+</div>
+
+<script>
+(function () {
+  const canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const resize = () => {
+    const cw = window.innerWidth, ch = window.innerHeight;
+    canvas.width = cw * dpr;
+    canvas.height = ch * dpr;
+  };
+  resize();
+  window.addEventListener('resize', resize);
+
+  const palettes = [200, 340, 140, 60, 280, 25];
+  const kinds = ['chip', 'gear', 'satellite', 'battery'];
+  let blocks = [];
+  const groundYFrac = 0.86;
+  const spawn = (x) => {
+    const hue = palettes[Math.floor(Math.random() * palettes.length)];
+    const kind = kinds[Math.floor(Math.random() * kinds.length)];
+    const size = 0.85 + Math.random() * 0.35;
+    blocks.push({ x, y: -40 * dpr, vy: 0, rot: 0, vrot: (Math.random() - 0.5) * 0.25, settled: false, bounces: 0, hue, kind, size, h: 30 * dpr * size, squash: 1 });
+    if (blocks.length > 60) blocks.shift();
+  };
+  const onClick = (e) => {
+    const r = canvas.getBoundingClientRect();
+    spawn((e.clientX - r.left) * dpr);
+  };
+  canvas.addEventListener('click', onClick);
+  setTimeout(() => { const r = canvas.getBoundingClientRect(); [0.3, 0.5, 0.7].forEach(f => spawn(r.width * f * dpr)); }, 300);
+
+  const drawBlock = (x, y, rot, squash, hue, kind, sz) => {
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(rot);
+    ctx.scale(sz / squash, sz * squash);
+    const s = 15 * dpr;
+    ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    const ink = `oklch(0.32 0.05 ${hue})`;
+    const face = `oklch(0.78 0.19 ${hue})`;
+    const side = `oklch(0.66 0.17 ${hue})`;
+    const accent = `oklch(0.94 0.03 ${hue})`;
+    ctx.strokeStyle = ink; ctx.lineWidth = 2 * dpr;
+    const bw = s * 1.5, bh = s * 1.2, bd = s * 0.4;
+    ctx.fillStyle = side;
+    ctx.beginPath(); ctx.moveTo(-bw/2, -bh/2); ctx.lineTo(-bw/2+bd, -bh/2-bd*0.6); ctx.lineTo(-bw/2+bd, bh/2-bd*0.6); ctx.lineTo(-bw/2, bh/2); ctx.closePath(); ctx.fill(); ctx.stroke();
+    ctx.fillStyle = face;
+    ctx.beginPath(); ctx.rect(-bw/2, -bh/2, bw, bh); ctx.fill(); ctx.stroke();
+
+    if (kind === 'chip') {
+      ctx.strokeStyle = ink; ctx.lineWidth = 1.6*dpr;
+      for (let i = -1; i <= 1; i++) { ctx.beginPath(); ctx.moveTo(-bw*0.35, i*bh*0.28); ctx.lineTo(bw*0.35, i*bh*0.28); ctx.stroke(); }
+      ctx.fillStyle = accent;
+      ctx.beginPath(); ctx.rect(-bw*0.22, -bh*0.22, bw*0.44, bh*0.44); ctx.fill(); ctx.stroke();
+      [-1,1].forEach(sx => [-1,0,1].forEach(sy => { ctx.beginPath(); ctx.moveTo(sx*bw*0.22, sy*bh*0.15); ctx.lineTo(sx*bw*0.42, sy*bh*0.15); ctx.stroke(); }));
+    } else if (kind === 'gear') {
+      ctx.fillStyle = accent;
+      const r = bh*0.32;
+      ctx.beginPath();
+      for (let i = 0; i < 8; i++) { const a = (i/8) * Math.PI*2; const ox = Math.cos(a)*r*1.35, oy = Math.sin(a)*r*1.35; ctx.rect(ox-r*0.16, oy-r*0.16, r*0.32, r*0.32); }
+      ctx.fill(); ctx.stroke();
+      ctx.beginPath(); ctx.arc(0, 0, r, 0, Math.PI*2); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = ink; ctx.beginPath(); ctx.arc(0, 0, r*0.32, 0, Math.PI*2); ctx.fill();
+    } else if (kind === 'satellite') {
+      ctx.strokeStyle = ink; ctx.lineWidth = 2*dpr;
+      ctx.fillStyle = accent;
+      ctx.beginPath(); ctx.arc(0, -bh*0.05, bh*0.28, Math.PI*0.15, Math.PI*0.85); ctx.lineTo(0,-bh*0.05); ctx.closePath(); ctx.fill(); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(0,-bh*0.05); ctx.lineTo(0, bh*0.35); ctx.stroke();
+      ctx.fillStyle = ink; ctx.beginPath(); ctx.arc(0, bh*0.05, bh*0.06, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(bw*0.28, bh*0.05, bh*0.06, 0, Math.PI*2); ctx.stroke();
+    } else {
+      ctx.fillStyle = accent;
+      ctx.beginPath(); ctx.rect(-bw*0.3, -bh*0.05, bw*0.6, bh*0.35); ctx.fill(); ctx.stroke();
+      ctx.beginPath(); ctx.rect(-bw*0.12, -bh*0.22, bw*0.24, bh*0.17); ctx.fill(); ctx.stroke();
+      ctx.strokeStyle = ink; ctx.lineWidth = 1.4*dpr;
+      for (let i=-1;i<=1;i++){ ctx.beginPath(); ctx.moveTo(i*bw*0.15, -bh*0.02); ctx.lineTo(i*bw*0.15, bh*0.27); ctx.stroke(); }
+    }
+
+    ctx.fillStyle = ink;
+    [[-1,-1],[1,-1],[1,1],[-1,1]].forEach(([sx,sy]) => { ctx.beginPath(); ctx.arc(sx*bw*0.42, sy*bh*0.38, bh*0.045, 0, Math.PI*2); ctx.fill(); });
+
+    ctx.strokeStyle = ink; ctx.lineWidth = 1.8*dpr;
+    ctx.beginPath(); ctx.moveTo(bw*0.3, -bh/2); ctx.lineTo(bw*0.3, -bh/2 - s*0.35); ctx.stroke();
+    ctx.fillStyle = accent;
+    ctx.beginPath(); ctx.arc(bw*0.3, -bh/2 - s*0.4, s*0.13, 0, Math.PI*2); ctx.fill(); ctx.stroke();
+    ctx.restore();
+  };
+
+  const draw = () => {
+    const w = canvas.width, h = canvas.height;
+    ctx.clearRect(0, 0, w, h);
+    ctx.strokeStyle = 'oklch(0.85 0.03 230 / 0.6)'; ctx.lineWidth = 1 * dpr;
+    const grid = 26 * dpr;
+    for (let gx = 0; gx < w; gx += grid) { ctx.beginPath(); ctx.moveTo(gx, 0); ctx.lineTo(gx, h); ctx.stroke(); }
+    for (let gy = 0; gy < h; gy += grid) { ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(w, gy); ctx.stroke(); }
+    const groundY = h * groundYFrac;
+    ctx.strokeStyle = 'oklch(0.55 0.05 230 / 0.8)'; ctx.lineWidth = 2*dpr;
+    ctx.beginPath(); ctx.moveTo(0, groundY); ctx.lineTo(w, groundY); ctx.stroke();
+    const OVERLAP = 40 * dpr;
+
+    blocks.forEach(d => {
+      d.vy += 0.9 * dpr;
+      d.y += d.vy;
+      d.rot += d.vrot;
+      let floorAt = groundY - d.h * 0.5;
+      blocks.forEach(o => {
+        if (o !== d && o.settled && Math.abs(o.x - d.x) < OVERLAP) {
+          const stackTop = o.y - o.h * 0.5 - d.h * 0.5;
+          if (stackTop < floorAt) floorAt = stackTop;
+        }
+      });
+      if (d.y > floorAt) {
+        const impact = d.vy;
+        d.y = floorAt;
+        if (Math.abs(impact) > 1 * dpr && d.bounces < 2) {
+          d.vy *= -0.35; d.vrot *= 0.4; d.bounces++; d.squash = 0.72;
+        } else {
+          d.vy = 0; d.vrot *= 0.6; if (Math.abs(d.vrot) < 0.002) d.vrot = 0;
+          d.settled = true; d.squash = 0.75;
+        }
+      }
+      d.squash += (1 - d.squash) * 0.25;
+      drawBlock(d.x, d.y, d.rot, d.squash, d.hue, d.kind, d.size);
+    });
+
+    requestAnimationFrame(draw);
+  };
+  draw();
+})();
+</script>
 </body>
 </html>
