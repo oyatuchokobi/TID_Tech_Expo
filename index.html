@@ -12,8 +12,9 @@ body{margin:0;background:oklch(0.97 0.01 90);color:oklch(0.28 0.03 250)}
 *{box-sizing:border-box}
 a{color:oklch(0.5 0.15 25);text-decoration:none}
 a:hover{color:oklch(0.58 0.15 25)}
-@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
-@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+html{scroll-behavior:smooth}
+.nav-links{display:flex;gap:24px}
+@media (max-width:640px){.nav-links{display:none}}
 </style>
 </head>
 <body>
@@ -22,6 +23,12 @@ a:hover{color:oklch(0.58 0.15 25)}
 
 <header style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px 32px;background:oklch(0.97 0.01 90 / 0.8);backdrop-filter:blur(10px);border-bottom:1px solid oklch(0.7 0.02 250 / 0.5)">
 <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;letter-spacing:0.04em;color:oklch(0.28 0.03 250)">TID TECH EXPO <span style="color:oklch(0.5 0.15 25)">2026</span></div>
+<nav class="nav-links" style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:500">
+<a href="#about" style="color:oklch(0.28 0.03 250)">About</a>
+<a href="#program" style="color:oklch(0.28 0.03 250)">Program</a>
+<a href="#entry" style="color:oklch(0.28 0.03 250)">Entry</a>
+<a href="#overview" style="color:oklch(0.28 0.03 250)">Overview</a>
+</nav>
 <!-- TODO: 外部応募フォームURLをここに設定 -->
 <a href="https://forms.google.com/..." target="_blank" rel="noopener" style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;color:oklch(0.99 0 0);background:oklch(0.5 0.15 25);padding:10px 22px;border-radius:2px;letter-spacing:0.02em">出展申込</a>
 </header>
@@ -41,39 +48,101 @@ a:hover{color:oklch(0.58 0.15 25)}
 </div>
 </section>
 
-<section id="overview" style="position:relative;z-index:2;padding:100px 32px;background:oklch(0.97 0.01 90);border-top:1px solid oklch(0.7 0.02 250 / 0.5)">
+<section id="about" style="position:relative;z-index:2;padding:100px 32px;background:oklch(0.97 0.01 90);border-top:1px solid oklch(0.7 0.02 250 / 0.5)">
 <div style="max-width:1100px;margin:0 auto">
-<div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:0.2em;color:oklch(0.5 0.15 25);margin-bottom:14px">OVERVIEW</div>
-<h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:34px;margin:0 0 48px;color:oklch(0.28 0.03 250)">開催概要</h2>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:oklch(0.7 0.02 250 / 0.5);border:1px solid oklch(0.7 0.02 250 / 0.5)">
-<div style="background:oklch(0.93 0.015 90);padding:28px"><div style="font-size:12px;color:oklch(0.5 0.02 250);margin-bottom:10px;letter-spacing:0.05em">開催日</div><div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;color:oklch(0.28 0.03 250)">2026年11月14日(土)</div></div>
-<div style="background:oklch(0.93 0.015 90);padding:28px"><div style="font-size:12px;color:oklch(0.5 0.02 250);margin-bottom:10px;letter-spacing:0.05em">会場</div><div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;color:oklch(0.28 0.03 250)">TIDホール メインアリーナ</div></div>
-<div style="background:oklch(0.93 0.015 90);padding:28px"><div style="font-size:12px;color:oklch(0.5 0.02 250);margin-bottom:10px;letter-spacing:0.05em">出展対象</div><div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;color:oklch(0.28 0.03 250)">学生・教職員</div></div>
-<div style="background:oklch(0.93 0.015 90);padding:28px"><div style="font-size:12px;color:oklch(0.5 0.02 250);margin-bottom:10px;letter-spacing:0.05em">来場対象</div><div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;color:oklch(0.28 0.03 250)">一般公開・入場無料</div></div>
+<div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:0.2em;color:oklch(0.5 0.15 25);margin-bottom:14px">ABOUT</div>
+<h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:34px;margin:0 0 20px;color:oklch(0.28 0.03 250)">TID Tech Expoについて</h2>
+<p style="font-size:15px;line-height:1.9;color:oklch(0.45 0.02 250);margin:0 0 48px;max-width:640px">学年や所属の垣根を超えて、日頃の研究成果や制作物を発表・共有する総合EXPO。あなたの情熱とアイディアを形にした作品を出展してみませんか？</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px">
+<div style="border:1px solid oklch(0.7 0.02 250 / 0.6);padding:32px;border-radius:4px;background:oklch(0.93 0.015 90)">
+<div style="width:44px;height:44px;border:1px solid oklch(0.5 0.15 25);border-radius:50%;margin-bottom:22px"></div>
+<h3 style="font-family:'Space Grotesk',sans-serif;font-size:19px;margin:0 0 12px;color:oklch(0.28 0.03 250)">教員と学生の相互理解</h3>
+<p style="font-size:14px;line-height:1.8;color:oklch(0.45 0.02 250);margin:0">制作活動や研究成果の共有を通じて、普段は見えにくい教員や他学科のリアルな取り組みを深く知るきっかけを作ります。</p>
+</div>
+<div style="border:1px solid oklch(0.7 0.02 250 / 0.6);padding:32px;border-radius:4px;background:oklch(0.93 0.015 90)">
+<div style="width:44px;height:44px;border:1px solid oklch(0.5 0.15 25);border-radius:50%;margin-bottom:22px"></div>
+<h3 style="font-family:'Space Grotesk',sans-serif;font-size:19px;margin:0 0 12px;color:oklch(0.28 0.03 250)">学科・学年を超えた交流と連携</h3>
+<p style="font-size:14px;line-height:1.8;color:oklch(0.45 0.02 250);margin:0">作品発表を通じて新たな仲間や指導教員との出会いを生み出し、分野を超えた新しいコラボレーションを創出します。</p>
+</div>
+<div style="border:1px solid oklch(0.7 0.02 250 / 0.6);padding:32px;border-radius:4px;background:oklch(0.93 0.015 90)">
+<div style="width:44px;height:44px;border:1px solid oklch(0.5 0.15 25);border-radius:50%;margin-bottom:22px"></div>
+<h3 style="font-family:'Space Grotesk',sans-serif;font-size:19px;margin:0 0 12px;color:oklch(0.28 0.03 250)">大学の魅力を学内外へ発信</h3>
+<p style="font-size:14px;line-height:1.8;color:oklch(0.45 0.02 250);margin:0">本学における先進的な教育・研究活動を、受験生・保護者・地域・企業などへ力強くアピールします。</p>
+</div>
 </div>
 </div>
 </section>
 
-<section style="position:relative;z-index:2;padding:100px 32px;background:oklch(0.93 0.015 90)">
+<section id="program" style="position:relative;z-index:2;padding:100px 32px;background:oklch(0.93 0.015 90)">
 <div style="max-width:1100px;margin:0 auto">
-<div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:0.2em;color:oklch(0.5 0.15 25);margin-bottom:14px">HIGHLIGHTS</div>
-<h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:34px;margin:0 0 48px;color:oklch(0.28 0.03 250)">EXPOの見どころ</h2>
+<div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:0.2em;color:oklch(0.5 0.15 25);margin-bottom:14px">PROGRAM</div>
+<h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:34px;margin:0 0 48px;color:oklch(0.28 0.03 250)">当日の実施プログラム</h2>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px">
 <div style="border:1px solid oklch(0.7 0.02 250 / 0.6);padding:32px;border-radius:4px;background:oklch(0.97 0.01 90)">
 <div style="width:44px;height:44px;border:1px solid oklch(0.5 0.15 25);border-radius:50%;margin-bottom:22px"></div>
-<h3 style="font-family:'Space Grotesk',sans-serif;font-size:19px;margin:0 0 12px;color:oklch(0.28 0.03 250)">最先端の研究展示</h3>
-<p style="font-size:14px;line-height:1.8;color:oklch(0.45 0.02 250);margin:0">AI・ロボティクス・IoTなど各分野の研究成果を、実際に手に取り体験できる展示形式で紹介します。</p>
+<h3 style="font-family:'Space Grotesk',sans-serif;font-size:19px;margin:0 0 12px;color:oklch(0.28 0.03 250)">展示・デモ発表</h3>
+<p style="font-size:14px;line-height:1.8;color:oklch(0.45 0.02 250);margin:0">学生および教員による制作物、研究発表パネル、デモアプリ、メディアアート等のブース展示。</p>
 </div>
 <div style="border:1px solid oklch(0.7 0.02 250 / 0.6);padding:32px;border-radius:4px;background:oklch(0.97 0.01 90)">
 <div style="width:44px;height:44px;border:1px solid oklch(0.5 0.15 25);border-radius:50%;margin-bottom:22px"></div>
-<h3 style="font-family:'Space Grotesk',sans-serif;font-size:19px;margin:0 0 12px;color:oklch(0.28 0.03 250)">学生発のプロダクト</h3>
-<p style="font-size:14px;line-height:1.8;color:oklch(0.45 0.02 250);margin:0">授業や研究室から生まれたプロジェクトを、学生自身がプレゼンテーションします。</p>
+<h3 style="font-family:'Space Grotesk',sans-serif;font-size:19px;margin:0 0 12px;color:oklch(0.28 0.03 250)">来場者参加型！作品投票</h3>
+<p style="font-size:14px;line-height:1.8;color:oklch(0.45 0.02 250);margin:0">参加した学生・教員・ゲストによるリアルタイムな作品投票企画を実施。</p>
 </div>
 <div style="border:1px solid oklch(0.7 0.02 250 / 0.6);padding:32px;border-radius:4px;background:oklch(0.97 0.01 90)">
 <div style="width:44px;height:44px;border:1px solid oklch(0.5 0.15 25);border-radius:50%;margin-bottom:22px"></div>
-<h3 style="font-family:'Space Grotesk',sans-serif;font-size:19px;margin:0 0 12px;color:oklch(0.28 0.03 250)">分野を越えた交流</h3>
-<p style="font-size:14px;line-height:1.8;color:oklch(0.45 0.02 250);margin:0">異なる専門分野の出展者・来場者が集まり、新しいアイデアが生まれる場をつくります。</p>
+<h3 style="font-family:'Space Grotesk',sans-serif;font-size:19px;margin:0 0 12px;color:oklch(0.28 0.03 250)">表彰式・アワード（予定）</h3>
+<p style="font-size:14px;line-height:1.8;color:oklch(0.45 0.02 250);margin:0">来場者投票や審査結果に基づき、優秀な研究・制作物にアワードを授与予定！</p>
 </div>
+</div>
+</div>
+</section>
+
+<section id="entry" style="position:relative;z-index:2;padding:100px 32px;background:oklch(0.97 0.01 90)">
+<div style="max-width:1100px;margin:0 auto">
+<div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:0.2em;color:oklch(0.5 0.15 25);margin-bottom:14px">ENTRY</div>
+<h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:34px;margin:0 0 48px;color:oklch(0.28 0.03 250)">出展募集要項</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:oklch(0.7 0.02 250 / 0.5);border:1px solid oklch(0.7 0.02 250 / 0.5);margin-bottom:48px">
+<div style="background:oklch(0.93 0.015 90);padding:28px">
+<div style="font-size:12px;color:oklch(0.5 0.02 250);margin-bottom:10px;letter-spacing:0.05em">募集対象</div>
+<div style="font-size:15px;line-height:1.8;color:oklch(0.28 0.03 250)">本学の学生（学部・学科・学年不問、個人・グループ問わず）および教員</div>
+</div>
+<div style="background:oklch(0.93 0.015 90);padding:28px">
+<div style="font-size:12px;color:oklch(0.5 0.02 250);margin-bottom:10px;letter-spacing:0.05em">対象作品・成果例</div>
+<div style="font-size:15px;line-height:1.8;color:oklch(0.28 0.03 250)">授業課題作品／卒業制作／修士・博士論文の研究成果／ゼミ・研究室でのプロジェクト／課外活動／個人制作中のアプリ・ゲーム・Webサイト・3Dモデル・研究構想など（未完成やプロトタイプも大歓迎！）</div>
+</div>
+<div style="background:oklch(0.93 0.015 90);padding:28px">
+<div style="font-size:12px;color:oklch(0.5 0.02 250);margin-bottom:10px;letter-spacing:0.05em">出展形式</div>
+<div style="font-size:15px;line-height:1.8;color:oklch(0.28 0.03 250)">ポスター展示／実機デモ展示／映像上映／パネル解説 など</div>
+</div>
+</div>
+<h3 style="font-family:'Space Grotesk',sans-serif;font-size:19px;margin:0 0 24px;color:oklch(0.28 0.03 250)">エントリーから当日までの流れ</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px">
+<div style="border:1px solid oklch(0.7 0.02 250 / 0.6);padding:32px;border-radius:4px;background:oklch(0.93 0.015 90)">
+<div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:0.1em;color:oklch(0.5 0.15 25);margin-bottom:14px">STEP 1</div>
+<p style="font-size:14px;line-height:1.8;color:oklch(0.45 0.02 250);margin:0">下記の応募フォームより出展エントリー（所要時間 約3分）</p>
+</div>
+<div style="border:1px solid oklch(0.7 0.02 250 / 0.6);padding:32px;border-radius:4px;background:oklch(0.93 0.015 90)">
+<div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:0.1em;color:oklch(0.5 0.15 25);margin-bottom:14px">STEP 2</div>
+<p style="font-size:14px;line-height:1.8;color:oklch(0.45 0.02 250);margin:0">出展内容の確認・ブースレイアウトの連絡（◯月上旬予定）</p>
+</div>
+<div style="border:1px solid oklch(0.7 0.02 250 / 0.6);padding:32px;border-radius:4px;background:oklch(0.93 0.015 90)">
+<div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:0.1em;color:oklch(0.5 0.15 25);margin-bottom:14px">STEP 3</div>
+<p style="font-size:14px;line-height:1.8;color:oklch(0.45 0.02 250);margin:0">当日会場にて設営＆展示発表！</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="overview" style="position:relative;z-index:2;padding:100px 32px;background:oklch(0.93 0.015 90)">
+<div style="max-width:1100px;margin:0 auto">
+<div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:0.2em;color:oklch(0.5 0.15 25);margin-bottom:14px">OVERVIEW</div>
+<h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:34px;margin:0 0 48px;color:oklch(0.28 0.03 250)">開催概要</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:oklch(0.7 0.02 250 / 0.5);border:1px solid oklch(0.7 0.02 250 / 0.5)">
+<div style="background:oklch(0.97 0.01 90);padding:28px"><div style="font-size:12px;color:oklch(0.5 0.02 250);margin-bottom:10px;letter-spacing:0.05em">日時</div><div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;color:oklch(0.28 0.03 250)">2026年◯月◯日（◯） 00:00-00:00（予定）</div></div>
+<div style="background:oklch(0.97 0.01 90);padding:28px"><div style="font-size:12px;color:oklch(0.5 0.02 250);margin-bottom:10px;letter-spacing:0.05em">会場</div><div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;color:oklch(0.28 0.03 250)">キャンパス内 ◯◯ホール／◯◯教室</div></div>
+<div style="background:oklch(0.97 0.01 90);padding:28px"><div style="font-size:12px;color:oklch(0.5 0.02 250);margin-bottom:10px;letter-spacing:0.05em">対象</div><div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;color:oklch(0.28 0.03 250)">本学学生、教員、一般来場者（受験生・保護者など）</div></div>
+<div style="background:oklch(0.97 0.01 90);padding:28px"><div style="font-size:12px;color:oklch(0.5 0.02 250);margin-bottom:10px;letter-spacing:0.05em">主催</div><div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;color:oklch(0.28 0.03 250)">TID Tech Expo 実行委員会</div></div>
+<div style="background:oklch(0.97 0.01 90);padding:28px"><div style="font-size:12px;color:oklch(0.5 0.02 250);margin-bottom:10px;letter-spacing:0.05em">問い合わせ先</div><div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;color:oklch(0.28 0.03 250)">email@example.com</div></div>
 </div>
 </div>
 </section>
@@ -81,16 +150,16 @@ a:hover{color:oklch(0.58 0.15 25)}
 <section style="position:relative;z-index:2;padding:120px 32px;background:oklch(0.97 0.01 90);text-align:center">
 <div style="max-width:640px;margin:0 auto">
 <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:0.2em;color:oklch(0.5 0.15 25);margin-bottom:18px">JOIN AS AN EXHIBITOR</div>
-<h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:38px;margin:0 0 22px;text-wrap:pretty;color:oklch(0.28 0.03 250)">あなたのアイデアを、<br>展示というかたちに。</h2>
+<h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:38px;margin:0 0 22px;text-wrap:pretty;color:oklch(0.28 0.03 250)">あなたの作品・研究を<br>共有しよう！</h2>
 <p style="font-size:15px;line-height:1.9;color:oklch(0.45 0.02 250);margin:0 0 40px">出展対象は学生・教職員の方。研究・制作物・プロダクトなど、分野は問いません。</p>
 <!-- TODO: 外部応募フォームURLをここに設定 -->
-<a href="https://forms.google.com/..." target="_blank" rel="noopener" style="display:inline-block;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;color:oklch(0.99 0 0);background:oklch(0.5 0.15 25);padding:18px 44px;border-radius:2px">出展申込へ進む →</a>
+<a href="https://forms.google.com/..." target="_blank" rel="noopener" style="display:inline-block;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;color:oklch(0.99 0 0);background:oklch(0.5 0.15 25);padding:18px 44px;border-radius:2px">出展エントリー（外部フォームへ）→</a>
 </div>
 </section>
 
 <footer style="position:relative;z-index:2;padding:36px 32px;background:oklch(0.93 0.015 90);border-top:1px solid oklch(0.7 0.02 250 / 0.5);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:oklch(0.5 0.02 250)">
-<div>TID TECH EXPO 2026</div>
-<div>主催:TID</div>
+<div>© 2026 TID Tech Expo. All rights reserved.</div>
+<a href="#" style="color:oklch(0.5 0.02 250)">▲ ページ上部へ戻る</a>
 </footer>
 
 </div>
@@ -117,7 +186,7 @@ a:hover{color:oklch(0.58 0.15 25)}
     const hue = palettes[Math.floor(Math.random() * palettes.length)];
     const kind = kinds[Math.floor(Math.random() * kinds.length)];
     const size = 0.85 + Math.random() * 0.35;
-    blocks.push({ x, y: -40 * dpr, vy: 0, rot: 0, vrot: (Math.random() - 0.5) * 0.25, settled: false, bounces: 0, hue, kind, size, h: 30 * dpr * size, squash: 1 });
+    blocks.push({ x, y: -40 * dpr, vy: 0, rot: 0, vrot: (Math.random() - 0.5) * 0.25, settled: false, bounces: 0, hue, kind, size, h: 18 * dpr * size, squash: 1 });
     if (blocks.length > 60) blocks.shift();
   };
   const onClick = (e) => {
