@@ -15,6 +15,8 @@ a:hover{color:oklch(0.58 0.15 25)}
 html{scroll-behavior:smooth}
 .nav-links{display:flex;gap:24px}
 @media (max-width:640px){.nav-links{display:none}}
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
+@keyframes ping{0%{transform:scale(1);opacity:.6}75%,100%{transform:scale(2.6);opacity:0}}
 </style>
 </head>
 <body>
@@ -36,7 +38,7 @@ html{scroll-behavior:smooth}
 <section style="position:relative;min-height:100vh;display:flex;align-items:center;padding:96px 32px 60px;background:oklch(0.97 0.01 90)">
 <canvas id="hero-canvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:0;cursor:pointer"></canvas>
 <div style="position:relative;z-index:1;max-width:640px;pointer-events:none">
-<div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:0.2em;color:oklch(0.5 0.15 25);margin-bottom:18px">TID TECH EXPO 2026</div>
+<div style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;letter-spacing:0.15em;margin-bottom:18px;color:oklch(0.28 0.03 250)">TID TECH EXPO <span style="color:oklch(0.5 0.15 25)">2026</span></div>
 <h1 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:56px;line-height:1.1;margin:0 0 22px;text-wrap:pretty;color:oklch(0.28 0.03 250)">技術をつなぎ、<br>未来を組み立てる。</h1>
 <p style="font-size:16px;line-height:1.9;color:oklch(0.42 0.02 250);margin:0 0 34px;max-width:480px">学生・教職員が創り上げる技術と発想が集う展示会。それぞれの分野から生まれたアイデアが、ひとつの未来へとかたちになっていきます。</p>
 <div style="display:flex;gap:16px;flex-wrap:wrap;pointer-events:auto">
@@ -44,7 +46,13 @@ html{scroll-behavior:smooth}
 <a href="https://forms.google.com/..." target="_blank" rel="noopener" style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;color:oklch(0.99 0 0);background:oklch(0.5 0.15 25);padding:16px 32px;border-radius:2px;white-space:nowrap">出展申込へ進む →</a>
 <a href="#overview" style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;color:oklch(0.28 0.03 250);border:1px solid oklch(0.6 0.02 250);padding:16px 32px;border-radius:2px;white-space:nowrap">開催概要を見る</a>
 </div>
-<div style="margin-top:18px;font-size:12px;color:oklch(0.55 0.02 250)">クリックすると技術ブロックが降ってくるよ</div>
+<div style="margin-top:18px;display:inline-flex;align-items:center;gap:10px;pointer-events:auto">
+<span style="position:relative;display:inline-flex;width:10px;height:10px;flex-shrink:0">
+<span style="position:absolute;inset:0;border-radius:50%;background:oklch(0.5 0.15 25 / 0.5);animation:ping 1.6s cubic-bezier(0,0,0.2,1) infinite"></span>
+<span style="position:absolute;inset:0;border-radius:50%;background:oklch(0.5 0.15 25);animation:pulse 1.6s ease-in-out infinite"></span>
+</span>
+<span style="font-size:12px;font-weight:500;color:oklch(0.5 0.15 25)">クリックすると技術ブロックが降ってくるよ</span>
+</div>
 </div>
 </section>
 
@@ -194,7 +202,11 @@ html{scroll-behavior:smooth}
     spawn((e.clientX - r.left) * dpr);
   };
   canvas.addEventListener('click', onClick);
-  setTimeout(() => { const r = canvas.getBoundingClientRect(); [0.3, 0.5, 0.7].forEach(f => spawn(r.width * f * dpr)); }, 300);
+  const r0 = canvas.getBoundingClientRect();
+  const seedBaseX = r0.width * 0.82 * dpr;
+  [0, 1, 2, 3, 4].forEach((i) => {
+    setTimeout(() => spawn(seedBaseX + (Math.random() - 0.5) * 20 * dpr), 200 + i * 220);
+  });
 
   const drawBlock = (x, y, rot, squash, hue, kind, sz) => {
     ctx.save();
@@ -266,24 +278,28 @@ html{scroll-behavior:smooth}
     const OVERLAP = 40 * dpr;
 
     blocks.forEach(d => {
-      d.vy += 0.9 * dpr;
-      d.y += d.vy;
-      d.rot += d.vrot;
-      let floorAt = groundY - d.h * 0.5;
-      blocks.forEach(o => {
-        if (o !== d && o.settled && Math.abs(o.x - d.x) < OVERLAP) {
-          const stackTop = o.y - o.h * 0.5 - d.h * 0.5;
-          if (stackTop < floorAt) floorAt = stackTop;
-        }
-      });
-      if (d.y > floorAt) {
-        const impact = d.vy;
-        d.y = floorAt;
-        if (Math.abs(impact) > 1 * dpr && d.bounces < 2) {
-          d.vy *= -0.35; d.vrot *= 0.4; d.bounces++; d.squash = 0.72;
-        } else {
-          d.vy = 0; d.vrot *= 0.6; if (Math.abs(d.vrot) < 0.002) d.vrot = 0;
-          d.settled = true; d.squash = 0.75;
+      if (!d.settled) {
+        d.vy += 0.9 * dpr;
+        if (d.vy > 26 * dpr) d.vy = 26 * dpr;
+        d.y += d.vy;
+        d.rot += d.vrot;
+
+        let floorAt = groundY - d.h * 0.5;
+        blocks.forEach(o => {
+          if (o !== d && o.settled && Math.abs(o.x - d.x) < OVERLAP) {
+            const stackTop = o.y - o.h * 0.5 - d.h * 0.5;
+            if (stackTop < floorAt) floorAt = stackTop;
+          }
+        });
+        if (d.y > floorAt) {
+          const impact = d.vy;
+          d.y = floorAt;
+          if (Math.abs(impact) > 1 * dpr && d.bounces < 2) {
+            d.vy *= -0.35; d.vrot *= 0.4; d.bounces++; d.squash = 0.72;
+          } else {
+            d.vy = 0; d.vrot *= 0.6; if (Math.abs(d.vrot) < 0.002) d.vrot = 0;
+            d.settled = true; d.squash = 0.75;
+          }
         }
       }
       d.squash += (1 - d.squash) * 0.25;
