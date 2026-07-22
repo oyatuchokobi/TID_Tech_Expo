@@ -56,6 +56,38 @@
     </div>
 
     <!-- NAVBAR -->
+    <header class="relative z-10 max-w-[1280px] mx-auto px-5 sm:px-8 py-4 sm:py-5 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <path d="M4 4H28V10H20V28H12V10H4V4Z" fill="var(--color-text)"/>
+        </svg>
+        <span class="font-bold text-base" style="font-weight:700;">TID Tech Expo</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="#about" class="hover:opacity-70 transition-opacity">About</a>
+        <a href="#program" class="hover:opacity-70 transition-opacity">Program</a>
+        <a href="#entry" class="hover:opacity-70 transition-opacity">Entry</a>
+        <a href="#overview" class="hover:opacity-70 transition-opacity">Overview</a>
+      </nav>
+
+      <div class="hidden md:flex items-center">
+        <!-- TODO: 外部応募フォームURLをここに設定 -->
+        <a href="https://forms.google.com/..." target="_blank" rel="noopener"
+           class="rounded-full px-5 py-2.5 text-white text-sm font-semibold transition-transform hover:scale-105"
+           style="background: var(--color-accent-purple);">
+          出展エントリー
+        </a>
+      </div>
+
+      <button id="mobile-menu-btn" class="md:hidden" aria-label="メニューを開く">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-text)" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </header>
 
     <!-- HERO -->
 
