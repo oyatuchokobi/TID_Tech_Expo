@@ -53,6 +53,10 @@ html{scroll-behavior:smooth}
 </span>
 <span style="font-size:12px;font-weight:500;color:oklch(0.5 0.15 25)">クリックすると技術ブロックが降ってくるよ</span>
 </div>
+<div style="margin-top:10px;display:inline-flex;align-items:center;gap:8px;pointer-events:none">
+<span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:0.1em;color:oklch(0.5 0.02 250)">NEXT</span>
+<canvas id="next-preview" style="width:28px;height:28px"></canvas>
+</div>
 </div>
 </section>
 
@@ -190,12 +194,31 @@ html{scroll-behavior:smooth}
   const kinds = ['chip', 'gear', 'satellite', 'battery'];
   let blocks = [];
   const groundYFrac = 0.86;
+  const randomSpec = () => ({
+    hue: palettes[Math.floor(Math.random() * palettes.length)],
+    kind: kinds[Math.floor(Math.random() * kinds.length)]
+  });
+  let nextSpec = randomSpec();
+  const previewCanvas = document.getElementById('next-preview');
+  let pctx = null;
+  if (previewCanvas) {
+    previewCanvas.width = 40 * dpr;
+    previewCanvas.height = 40 * dpr;
+    pctx = previewCanvas.getContext('2d');
+  }
+  const drawPreview = () => {
+    if (!pctx) return;
+    pctx.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
+    drawBlock(pctx, previewCanvas.width / 2, previewCanvas.height / 2, 0, 1, nextSpec.hue, nextSpec.kind, 1);
+  };
+  setTimeout(drawPreview, 0);
   const spawn = (x) => {
-    const hue = palettes[Math.floor(Math.random() * palettes.length)];
-    const kind = kinds[Math.floor(Math.random() * kinds.length)];
+    const { hue, kind } = nextSpec;
     const size = 0.85 + Math.random() * 0.35;
     blocks.push({ x, y: -40 * dpr, vy: 0, rot: 0, vrot: (Math.random() - 0.5) * 0.25, settled: false, bounces: 0, hue, kind, size, h: 18 * dpr * size, squash: 1 });
-    if (blocks.length > 60) blocks.shift();
+    if (blocks.length > 150) blocks.shift();
+    nextSpec = randomSpec();
+    drawPreview();
   };
   const onClick = (e) => {
     const r = canvas.getBoundingClientRect();
@@ -208,7 +231,8 @@ html{scroll-behavior:smooth}
     setTimeout(() => spawn(seedBaseX + (Math.random() - 0.5) * 20 * dpr), 200 + i * 220);
   });
 
-  const drawBlock = (x, y, rot, squash, hue, kind, sz) => {
+  const drawBlock = (targetCtx, x, y, rot, squash, hue, kind, sz) => {
+    const ctx = targetCtx;
     ctx.save();
     ctx.translate(x, y);
     ctx.rotate(rot);
@@ -303,7 +327,7 @@ html{scroll-behavior:smooth}
         }
       }
       d.squash += (1 - d.squash) * 0.25;
-      drawBlock(d.x, d.y, d.rot, d.squash, d.hue, d.kind, d.size);
+      drawBlock(ctx, d.x, d.y, d.rot, d.squash, d.hue, d.kind, d.size);
     });
 
     requestAnimationFrame(draw);
