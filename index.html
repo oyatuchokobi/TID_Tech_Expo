@@ -3,297 +3,210 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TID Tech Expo 2026 | 来場案内</title>
+<title>TID Tech Expo 2026 | A Journey into Research</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Noto+Serif+JP:wght@400;600;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/matter-js@0.19.0/build/matter.min.js"></script>
 <style>
-body{margin:0;background:oklch(0.97 0.01 90);color:oklch(0.28 0.03 250)}
+:root{
+  --navy-deep:oklch(0.19 0.04 255);
+  --navy:oklch(0.24 0.045 255);
+  --navy-light:oklch(0.29 0.045 255);
+  --gold:oklch(0.78 0.13 85);
+  --gold-bright:oklch(0.86 0.15 88);
+  --cream:oklch(0.94 0.02 85);
+  --cream-dim:oklch(0.78 0.03 255);
+  --line:oklch(0.7 0.11 85 / 0.35)
+}
+body{margin:0;background:var(--navy-deep);color:var(--cream)}
 *{box-sizing:border-box}
-a{color:oklch(0.5 0.15 25);text-decoration:none}
-a:hover{color:oklch(0.58 0.15 25)}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--gold-bright)}
 html{scroll-behavior:smooth}
-.nav-links{display:flex;gap:24px}
-@media (max-width:640px){.nav-links{display:none}.hero-hint{display:none!important}}
+.nav-links{display:flex;gap:28px}
+@media (max-width:640px){.nav-links{display:none}}
 .site-title{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 .entry-btn{white-space:nowrap;flex-shrink:0}
-.hint-text{white-space:normal}
-@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
-@keyframes ping{0%{transform:scale(1);opacity:.6}75%,100%{transform:scale(2.6);opacity:0}}
+.hero-grid{display:flex;gap:clamp(32px,6vw,80px);align-items:center;flex-wrap:wrap}
+.hero-text{flex:1 1 420px;min-width:0}
+.hero-figure{flex:1 1 300px;max-width:380px;margin:0 auto}
+.booth-desc{display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+.tag{display:inline-block;font-size:11px;letter-spacing:.03em;color:var(--gold);border:1px solid var(--line);padding:4px 10px;border-radius:20px;margin:0 6px 6px 0}
+.stamp{display:inline-flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:15px;color:var(--gold);border:1.5px dashed var(--line);border-radius:4px;padding:6px 12px;min-width:52px}
+.hairline-bg{background-image:repeating-linear-gradient(90deg,oklch(0.7 0.11 85 / 0.06) 0 1px,transparent 1px 48px),repeating-linear-gradient(0deg,oklch(0.7 0.11 85 / 0.06) 0 1px,transparent 1px 48px)}
+.eyebrow{font-family:'Playfair Display',serif;font-size:13px;letter-spacing:.25em;color:var(--gold)}
+.section-title{font-family:'Noto Serif JP',serif;font-weight:700;font-size:clamp(24px,6vw,34px);margin:0 0 48px;color:var(--cream)}
+.card{border:1px solid var(--line);padding:clamp(20px,5vw,32px);border-radius:2px;background:var(--navy)}
+.room-heading{font-family:'Noto Serif JP',serif;font-size:19px;font-weight:700;color:var(--gold);margin:0 0 20px;padding-bottom:10px;border-bottom:1px solid var(--line)}
 </style>
 </head>
 <body>
 
 <div style="font-family:'Noto Sans JP',sans-serif;min-height:100vh;position:relative;overflow-x:hidden">
 
-<header style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px clamp(16px,5vw,32px);background:oklch(0.97 0.01 90 / 0.8);backdrop-filter:blur(10px);border-bottom:1px solid oklch(0.7 0.02 250 / 0.5)">
-<div class="site-title" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(13px,3.6vw,16px);letter-spacing:0.04em;color:oklch(0.28 0.03 250)">TID TECH EXPO <span style="color:oklch(0.5 0.15 25)">2026</span></div>
-<nav class="nav-links" style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:500">
-<a href="#program" style="color:oklch(0.28 0.03 250)">Program</a>
-<a href="#overview" style="color:oklch(0.28 0.03 250)">Overview</a>
-<a href="#booths" style="color:oklch(0.28 0.03 250)">Booths</a>
+<header style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px clamp(16px,5vw,32px);background:var(--navy-deep);background:oklch(0.19 0.04 255 / 0.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)">
+<div class="site-title" style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(13px,3.6vw,16px);letter-spacing:0.04em;color:var(--cream)">TID TECH EXPO <span style="color:var(--gold)">2026</span></div>
+<nav class="nav-links" style="font-family:'Playfair Display',serif;font-size:14px;font-weight:600">
+<a href="#program" style="color:var(--cream)">Program</a>
+<a href="#booths" style="color:var(--cream)">Booths</a>
+<a href="#map" style="color:var(--cream)">Map</a>
+<a href="#overview" style="color:var(--cream)">Overview</a>
 </nav>
-<a href="exhibitors.html" class="entry-btn" style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(12px,3.2vw,14px);color:oklch(0.28 0.03 250);border:1px solid oklch(0.6 0.02 250);padding:clamp(8px,2.2vw,10px) clamp(14px,4vw,22px);border-radius:2px;letter-spacing:0.02em">出展者の方へ</a>
+<a href="exhibitors.html" class="entry-btn" style="font-family:'Noto Sans JP',sans-serif;font-weight:600;font-size:clamp(12px,3.2vw,14px);color:var(--gold);border:1px solid var(--line);padding:clamp(8px,2.2vw,10px) clamp(14px,4vw,22px);border-radius:2px;letter-spacing:0.02em">出展者の方へ</a>
 </header>
 
-<section style="position:relative;min-height:100vh;display:flex;align-items:center;padding:clamp(88px,22vw,96px) clamp(20px,6vw,32px) 60px;background:oklch(0.97 0.01 90)">
-<canvas id="hero-canvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:0;cursor:pointer"></canvas>
-<div style="position:relative;z-index:1;max-width:640px;pointer-events:none">
-<div style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;letter-spacing:0.15em;margin-bottom:18px;color:oklch(0.28 0.03 250)">TID TECH EXPO <span style="color:oklch(0.5 0.15 25)">2026</span></div>
-<div style="display:inline-block;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.05em;color:oklch(0.99 0 0);background:oklch(0.5 0.15 25);padding:8px 16px;border-radius:2px;margin-bottom:22px">9/12(土)・13(日) 開催</div>
-<h1 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(34px,9vw,56px);line-height:1.1;margin:0 0 22px;text-wrap:pretty;color:oklch(0.28 0.03 250)">TID Tech Expo 2026<br>9/12-13 学園祭</h1>
-<p style="font-size:16px;line-height:1.9;color:oklch(0.42 0.02 250);margin:0 0 34px;max-width:480px">学生・教職員が創り上げる技術と発想が集う展示会。それぞれの分野から生まれたアイデアが、ひとつの未来へとかたちになっていきます。ぜひ会場に足をお運びください。</p>
-<div style="display:flex;gap:16px;flex-wrap:wrap;pointer-events:auto">
-<a href="#program" style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;color:oklch(0.99 0 0);background:oklch(0.5 0.15 25);padding:16px 32px;border-radius:2px;white-space:nowrap">プログラムを見る</a>
-<a href="#overview" style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;color:oklch(0.28 0.03 250);border:1px solid oklch(0.6 0.02 250);padding:16px 32px;border-radius:2px;white-space:nowrap">開催概要を見る</a>
+<section class="hairline-bg" style="position:relative;min-height:100vh;display:flex;align-items:center;padding:clamp(110px,22vw,140px) clamp(20px,6vw,32px) 60px;background:var(--navy-deep)">
+<div class="hero-grid" style="position:relative;z-index:1;max-width:1100px;margin:0 auto;width:100%">
+<div class="hero-text">
+<div class="eyebrow" style="margin-bottom:18px">TID UNIVERSITY</div>
+<div style="display:inline-block;font-family:'Noto Sans JP',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.05em;color:var(--gold);border:1px solid var(--line);padding:8px 16px;border-radius:2px;margin-bottom:26px">9/12(土)・13(日) 開催</div>
+<h1 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(36px,8vw,64px);line-height:1.15;margin:0 0 8px;color:var(--gold-bright);background:linear-gradient(135deg,var(--gold-bright),var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">A Journey<br>into Research</h1>
+<div style="font-family:'Noto Serif JP',serif;font-weight:600;font-size:clamp(17px,3.4vw,22px);margin:0 0 26px;color:var(--cream)">TID Tech Expo 2026 ― 9/12-13 学園祭</div>
+<p style="font-size:16px;line-height:1.9;color:var(--cream-dim);margin:0 0 34px;max-width:480px">学生・教職員が創り上げる技術と発想が集う展示会。それぞれの分野から生まれたアイデアが、ひとつの未来へとかたちになっていきます。ぜひ会場に足をお運びください。</p>
+<div style="display:flex;gap:16px;flex-wrap:wrap">
+<a href="#program" style="font-family:'Noto Sans JP',sans-serif;font-weight:600;font-size:15px;color:var(--navy-deep);background:var(--gold);padding:16px 32px;border-radius:2px;white-space:nowrap">プログラムを見る</a>
+<a href="#overview" style="font-family:'Noto Sans JP',sans-serif;font-weight:600;font-size:15px;color:var(--cream);border:1px solid var(--line);padding:16px 32px;border-radius:2px;white-space:nowrap">開催概要を見る</a>
 </div>
 </div>
-<div class="hero-hint" style="position:absolute;top:96px;right:40px;max-width:300px;z-index:5;display:flex;flex-direction:column;align-items:flex-end;gap:12px;padding:14px 18px;background:oklch(0.97 0.01 90 / 0.7);backdrop-filter:blur(8px);border-radius:8px;pointer-events:none">
-<div style="display:inline-flex;align-items:center;gap:10px">
-<span style="position:relative;display:inline-flex;width:10px;height:10px;flex-shrink:0">
-<span style="position:absolute;inset:0;border-radius:50%;background:oklch(0.5 0.15 25 / 0.5);animation:ping 1.6s cubic-bezier(0,0,0.2,1) infinite"></span>
-<span style="position:absolute;inset:0;border-radius:50%;background:oklch(0.5 0.15 25);animation:pulse 1.6s ease-in-out infinite"></span>
-</span>
-<span class="hint-text" style="font-size:12px;font-weight:500;color:oklch(0.5 0.15 25);text-align:right">クリックしてみてね</span>
+<div class="hero-figure">
+<div style="border:1px solid var(--line);padding:10px;background:var(--navy);box-shadow:0 20px 60px oklch(0.1 0.02 255 / 0.5);transform:rotate(-2deg)">
+<img src="assets/pamphlet.png" alt="TID Tech Expo 2026 パンフレット「A Journey into Research」" style="display:block;width:100%;height:auto;border:1px solid var(--line)">
 </div>
-<div style="display:inline-flex;align-items:center;gap:8px">
-<span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:0.1em;color:oklch(0.5 0.02 250)">NEXT</span>
-<canvas id="next-preview" style="width:28px;height:28px"></canvas>
+<div style="text-align:center;font-family:'Playfair Display',serif;font-size:12px;letter-spacing:.2em;color:var(--cream-dim);margin-top:16px">OFFICIAL PAMPHLET</div>
 </div>
 </div>
 </section>
 
-<section id="program" style="position:relative;z-index:2;padding:clamp(56px,14vw,100px) clamp(20px,6vw,32px);background:oklch(0.93 0.015 90);border-top:1px solid oklch(0.7 0.02 250 / 0.5)">
+<section id="program" style="position:relative;z-index:2;padding:clamp(56px,14vw,100px) clamp(20px,6vw,32px);background:var(--navy);border-top:1px solid var(--line)">
 <div style="max-width:1100px;margin:0 auto">
-<div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:0.2em;color:oklch(0.5 0.15 25);margin-bottom:14px">PROGRAM</div>
-<h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(24px,6vw,34px);margin:0 0 48px;color:oklch(0.28 0.03 250)">当日の実施プログラム</h2>
+<div class="eyebrow" style="margin-bottom:14px">PROGRAM</div>
+<h2 class="section-title">当日の実施プログラム</h2>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px">
-<div style="border:1px solid oklch(0.7 0.02 250 / 0.6);padding:clamp(20px,5vw,32px);border-radius:4px;background:oklch(0.97 0.01 90)">
-<div style="width:44px;height:44px;border:1px solid oklch(0.5 0.15 25);border-radius:50%;margin-bottom:22px;display:flex;align-items:center;justify-content:center"><span class="material-symbols-outlined" style="font-size:22px;color:oklch(0.5 0.15 25)">slideshow</span></div>
-<h3 style="font-family:'Space Grotesk',sans-serif;font-size:19px;margin:0 0 12px;color:oklch(0.28 0.03 250)">展示・デモ発表</h3>
-<p style="font-size:14px;line-height:1.8;color:oklch(0.45 0.02 250);margin:0">学生および教員による制作物、研究発表パネル、デモアプリ、メディアアート等のブース展示。</p>
+<div class="card">
+<div style="width:44px;height:44px;border:1px solid var(--gold);border-radius:50%;margin-bottom:22px;display:flex;align-items:center;justify-content:center"><span class="material-symbols-outlined" style="font-size:22px;color:var(--gold)">slideshow</span></div>
+<h3 style="font-family:'Noto Serif JP',serif;font-size:19px;margin:0 0 12px;color:var(--cream)">展示・デモ発表</h3>
+<p style="font-size:14px;line-height:1.8;color:var(--cream-dim);margin:0">学生および教員による制作物、研究発表パネル、デモアプリ、メディアアート等のブース展示。</p>
 </div>
-<div style="border:1px solid oklch(0.7 0.02 250 / 0.6);padding:clamp(20px,5vw,32px);border-radius:4px;background:oklch(0.97 0.01 90)">
-<div style="width:44px;height:44px;border:1px solid oklch(0.5 0.15 25);border-radius:50%;margin-bottom:22px;display:flex;align-items:center;justify-content:center"><span class="material-symbols-outlined" style="font-size:22px;color:oklch(0.5 0.15 25)">how_to_vote</span></div>
-<h3 style="font-family:'Space Grotesk',sans-serif;font-size:19px;margin:0 0 12px;color:oklch(0.28 0.03 250)">来場者参加型！作品投票</h3>
-<p style="font-size:14px;line-height:1.8;color:oklch(0.45 0.02 250);margin:0">参加した学生・教員・ゲストによるリアルタイムな作品投票企画を実施。</p>
+<div class="card">
+<div style="width:44px;height:44px;border:1px solid var(--gold);border-radius:50%;margin-bottom:22px;display:flex;align-items:center;justify-content:center"><span class="material-symbols-outlined" style="font-size:22px;color:var(--gold)">how_to_vote</span></div>
+<h3 style="font-family:'Noto Serif JP',serif;font-size:19px;margin:0 0 12px;color:var(--cream)">来場者参加型！作品投票</h3>
+<p style="font-size:14px;line-height:1.8;color:var(--cream-dim);margin:0">参加した学生・教員・ゲストによるリアルタイムな作品投票企画を実施。</p>
 </div>
-<div style="border:1px solid oklch(0.7 0.02 250 / 0.6);padding:clamp(20px,5vw,32px);border-radius:4px;background:oklch(0.97 0.01 90)">
-<div style="width:44px;height:44px;border:1px solid oklch(0.5 0.15 25);border-radius:50%;margin-bottom:22px;display:flex;align-items:center;justify-content:center"><span class="material-symbols-outlined" style="font-size:22px;color:oklch(0.5 0.15 25)">emoji_events</span></div>
-<h3 style="font-family:'Space Grotesk',sans-serif;font-size:19px;margin:0 0 12px;color:oklch(0.28 0.03 250)">表彰式・アワード（予定）</h3>
-<p style="font-size:14px;line-height:1.8;color:oklch(0.45 0.02 250);margin:0">来場者投票や審査結果に基づき、優秀な研究・制作物にアワードを授与予定！</p>
+<div class="card">
+<div style="width:44px;height:44px;border:1px solid var(--gold);border-radius:50%;margin-bottom:22px;display:flex;align-items:center;justify-content:center"><span class="material-symbols-outlined" style="font-size:22px;color:var(--gold)">emoji_events</span></div>
+<h3 style="font-family:'Noto Serif JP',serif;font-size:19px;margin:0 0 12px;color:var(--cream)">表彰式・アワード（予定）</h3>
+<p style="font-size:14px;line-height:1.8;color:var(--cream-dim);margin:0">来場者投票や審査結果に基づき、優秀な研究・制作物にアワードを授与予定！</p>
 </div>
 </div>
 </div>
 </section>
 
-<section id="booths" style="position:relative;z-index:2;padding:clamp(56px,14vw,100px) clamp(20px,6vw,32px);background:oklch(0.97 0.01 90)">
+<section id="booths" style="position:relative;z-index:2;padding:clamp(56px,14vw,100px) clamp(20px,6vw,32px);background:var(--navy-deep)">
 <div style="max-width:1100px;margin:0 auto">
-<div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:0.2em;color:oklch(0.5 0.15 25);margin-bottom:14px">BOOTHS</div>
-<h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(24px,6vw,34px);margin:0 0 20px;color:oklch(0.28 0.03 250)">出展作品・ブース一覧</h2>
-<div style="border:1px solid oklch(0.7 0.02 250 / 0.6);padding:clamp(28px,6vw,44px);border-radius:4px;background:oklch(0.93 0.015 90);text-align:center">
-<p style="font-size:15px;line-height:1.9;color:oklch(0.45 0.02 250);margin:0">出展作品・ブース配置は準備中です。決まり次第、こちらのページで公開いたします。</p>
+<div class="eyebrow" style="margin-bottom:14px">BOOTHS</div>
+<h2 class="section-title">出展作品・ブース一覧</h2>
+
+<h3 class="room-heading">モーションキャプチャルーム</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-bottom:56px">
+
+<div class="card">
+<div style="display:flex;align-items:center;gap:14px;margin-bottom:16px"><span class="stamp">1M</span><div><div style="font-family:'Noto Serif JP',serif;font-weight:700;color:var(--cream)">平田研究室</div><div style="font-family:'Playfair Display',serif;font-style:italic;font-size:12px;color:var(--cream-dim)">Hirata Lab</div></div></div>
+<h4 style="font-size:16px;margin:0 0 10px;color:var(--gold)">次世代ドローン点検システムの開発</h4>
+<p class="booth-desc" style="font-size:13px;line-height:1.8;color:var(--cream-dim);margin:0 0 14px">社会基盤の遠隔点検や農薬散布、空撮等の産業分野向けのドローンでは、航行の安全性確保は社会・経済活動上、先送りできない課題となっています。機体にセンサー等機材を装着することなく、機体の健全性を日常的に点検可能とし、飛行の安全性を客観的に評価する枠組みを目指しています。</p>
+<div><span class="tag">論文・パネル研究発表</span></div>
+</div>
+
+<div class="card">
+<div style="display:flex;align-items:center;gap:14px;margin-bottom:16px"><span class="stamp">2M</span><div><div style="font-family:'Noto Serif JP',serif;font-weight:700;color:var(--cream)">丹野嘉信</div><div style="font-family:'Playfair Display',serif;font-style:italic;font-size:12px;color:var(--cream-dim)">Tanno</div></div></div>
+<h4 style="font-size:16px;margin:0 0 10px;color:var(--gold)">色制御をシンプルにしたキーボード照明システム</h4>
+<p class="booth-desc" style="font-size:13px;line-height:1.8;color:var(--cream-dim);margin:0 0 14px">キーボードの各キーを個別に光らせるための、シンプルな照明システムを開発しました。色の生成に色フィルタを利用することで、キーごとの色制御を簡素化している点が特徴です。システムの仕組みと試作機を紹介し、入力支援や教育用途への応用可能性を示します。</p>
+<div><span class="tag">ハードウェア・ロボティクス・IoT</span><span class="tag">論文・パネル研究発表</span></div>
+</div>
+
+<div class="card">
+<div style="display:flex;align-items:center;gap:14px;margin-bottom:16px"><span class="stamp">3M</span><div><div style="font-family:'Noto Serif JP',serif;font-weight:700;color:var(--cream)">上野研</div><div style="font-family:'Playfair Display',serif;font-style:italic;font-size:12px;color:var(--cream-dim)">Ueno Lab</div></div></div>
+<h4 style="font-size:16px;margin:0 0 10px;color:var(--gold)">座るだけで生体信号が取れるセンサー技術の応用</h4>
+<p class="booth-desc" style="font-size:13px;line-height:1.8;color:var(--cream-dim);margin:0 0 14px">高性能な振動センサーである圧電センサーを用いて、非拘束で生体信号を取得するデモを行います。得られた生体信号の応用技術も研究中の技術として解説します。</p>
+<div><span class="tag">論文・パネル研究発表</span></div>
+</div>
+
+<div class="card">
+<div style="display:flex;align-items:center;gap:14px;margin-bottom:16px"><span class="stamp">4M</span><div><div style="font-family:'Noto Serif JP',serif;font-weight:700;color:var(--cream)">Bamboo unknown</div><div style="font-family:'Playfair Display',serif;font-style:italic;font-size:12px;color:var(--cream-dim)">Bamboo unkbown</div></div></div>
+<h4 style="font-size:16px;margin:0 0 10px;color:var(--gold)">まーちゃん</h4>
+<p class="booth-desc" style="font-size:13px;line-height:1.8;color:var(--cream-dim);margin:0 0 14px">高齢化が進む地域の介護施設等において、健康麻雀を通してシニアが自らの経験や知恵を活かし、自立して暮らせる社会の実現を目指す。身体性とLLMが融合した本システムを導入することで、シニアに「AIに戦術を教える先生」という能動的な役割と生きがいを提供する。</p>
+<div><span class="tag">ソフトウェア・アプリ / WEB</span><span class="tag">ゲーム・VR / AR</span><span class="tag">メディアアート・映像・デザイン</span><span class="tag">ハードウェア・ロボティクス・IoT</span><span class="tag">論文・パネル研究発表</span><span class="tag">その他</span></div>
+</div>
+
+<div class="card">
+<div style="display:flex;align-items:center;gap:14px;margin-bottom:16px"><span class="stamp">5M</span><div><div style="font-family:'Noto Serif JP',serif;font-weight:700;color:var(--cream)">情報デザイン学科衣川研究室</div><div style="font-family:'Playfair Display',serif;font-style:italic;font-size:12px;color:var(--cream-dim)">Kinugawa Lab</div></div></div>
+<h4 style="font-size:16px;margin:0 0 10px;color:var(--gold)">研究室４年生テーマ：ポスター参加</h4>
+<p class="booth-desc" style="font-size:13px;line-height:1.8;color:var(--cream-dim);margin:0 0 14px">所属する4年生5名の研究テーマを1枚構成のポスターにまとめ、研究の背景・目的・手法・結果を図表とともに分かりやすく掲示します。来場者が一目で内容を理解できる構成としています。</p>
+<div><span class="tag">論文・パネル研究発表</span></div>
+</div>
+
+</div>
+
+<h3 class="room-heading">学習支援センター</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
+
+<div class="card">
+<div style="display:flex;align-items:center;gap:14px;margin-bottom:16px"><span class="stamp">1G</span><div><div style="font-family:'Noto Serif JP',serif;font-weight:700;color:var(--cream)">宮本櫂</div><div style="font-family:'Playfair Display',serif;font-style:italic;font-size:12px;color:var(--cream-dim)">Miyamoto</div></div></div>
+<h4 style="font-size:16px;margin:0 0 10px;color:var(--gold)">VRアバターの印象調査</h4>
+<p class="booth-desc" style="font-size:13px;line-height:1.8;color:var(--cream-dim);margin:0 0 14px">江戸川区が展開する「江戸川区メタバース区役所」というVRワールドと協力し、より良いものにするプロジェクトを実施。職員のアバターがユーザーに与える印象を調査し、ユーザーが安心して相談できるアバターとは何かを研究している。</p>
+<div><span class="tag">ゲーム・VR / AR</span></div>
+</div>
+
+<div class="card">
+<div style="display:flex;align-items:center;gap:14px;margin-bottom:16px"><span class="stamp">2G</span><div><div style="font-family:'Noto Serif JP',serif;font-weight:700;color:var(--cream)">氏家研究室</div><div style="font-family:'Playfair Display',serif;font-style:italic;font-size:12px;color:var(--cream-dim)">Ujike Lab</div></div></div>
+<h4 style="font-size:16px;margin:0 0 10px;color:var(--gold)">その映像、大丈夫？ ― VR酔い・視覚疲労を減らす映像の生体安全性への取り組み</h4>
+<p class="booth-desc" style="font-size:13px;line-height:1.8;color:var(--cream-dim);margin:0 0 14px">テレビやゲーム、3D映像、AR/VRなど、映像による好ましくない生体影響（光感受性発作、3D視覚疲労、映像酔い/VR酔い）の軽減に向けた国際標準化の取り組みを紹介し、具体的な体験を通して理解を深める展示です。</p>
+<div><span class="tag">その他</span></div>
+</div>
+
+<div class="card">
+<div style="display:flex;align-items:center;gap:14px;margin-bottom:16px"><span class="stamp">3G</span><div><div style="font-family:'Noto Serif JP',serif;font-weight:700;color:var(--cream)">磯研</div><div style="font-family:'Playfair Display',serif;font-style:italic;font-size:12px;color:var(--cream-dim)">Iso Lab</div></div></div>
+<h4 style="font-size:16px;margin:0 0 10px;color:var(--gold)">i-棒 ― 光るペンライトの体験展示</h4>
+<p class="booth-desc" style="font-size:13px;line-height:1.8;color:var(--cream-dim);margin:0 0 14px">詳細は9月上旬に公開予定です。お楽しみに。</p>
+<div><span class="tag">メディアアート・映像・デザイン</span></div>
+</div>
+
 </div>
 </div>
 </section>
 
-<section id="overview" style="position:relative;z-index:2;padding:clamp(56px,14vw,100px) clamp(20px,6vw,32px);background:oklch(0.93 0.015 90);border-top:1px solid oklch(0.7 0.02 250 / 0.5)">
+<section id="map" style="position:relative;z-index:2;padding:clamp(56px,14vw,100px) clamp(20px,6vw,32px);background:var(--navy);border-top:1px solid var(--line)">
+<div style="max-width:900px;margin:0 auto">
+<div class="eyebrow" style="margin-bottom:14px">MAP</div>
+<h2 class="section-title">会場マップ</h2>
+<p style="font-size:14px;line-height:1.9;color:var(--cream-dim);margin:0 0 32px">出展ブースは「モーションキャプチャルーム」と「学習支援センター」の2会場に分かれています。当日はマップを参考にお越しください。</p>
+<div style="border:1px solid var(--line);padding:clamp(16px,3vw,28px);background:var(--navy-deep)">
+<img src="assets/floor-map.png" alt="TID Tech Expo 2026 会場マップ・ブース配置図" style="display:block;width:100%;height:auto">
+</div>
+</div>
+</section>
+
+<section id="overview" style="position:relative;z-index:2;padding:clamp(56px,14vw,100px) clamp(20px,6vw,32px);background:var(--navy-deep);border-top:1px solid var(--line)">
 <div style="max-width:1100px;margin:0 auto">
-<div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:0.2em;color:oklch(0.5 0.15 25);margin-bottom:14px">OVERVIEW</div>
-<h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(24px,6vw,34px);margin:0 0 48px;color:oklch(0.28 0.03 250)">開催概要</h2>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:oklch(0.7 0.02 250 / 0.5);border:1px solid oklch(0.7 0.02 250 / 0.5)">
-<div style="background:oklch(0.97 0.01 90);padding:28px"><div style="font-size:12px;color:oklch(0.5 0.02 250);margin-bottom:10px;letter-spacing:0.05em">日時</div><div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;color:oklch(0.28 0.03 250)">2026年9月12日（土）・13日（日）</div></div>
-<div style="background:oklch(0.97 0.01 90);padding:28px"><div style="font-size:12px;color:oklch(0.5 0.02 250);margin-bottom:10px;letter-spacing:0.05em">会場</div><div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;color:oklch(0.28 0.03 250)">準備中</div></div>
-<div style="background:oklch(0.97 0.01 90);padding:28px"><div style="font-size:12px;color:oklch(0.5 0.02 250);margin-bottom:10px;letter-spacing:0.05em">対象</div><div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;color:oklch(0.28 0.03 250)">本学学生、教員、一般来場者（受験生・保護者など）</div></div>
-<div style="background:oklch(0.97 0.01 90);padding:28px"><div style="font-size:12px;color:oklch(0.5 0.02 250);margin-bottom:10px;letter-spacing:0.05em">主催</div><div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;color:oklch(0.28 0.03 250)">教職学連絡会</div></div>
+<div class="eyebrow" style="margin-bottom:14px">OVERVIEW</div>
+<h2 class="section-title">開催概要</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)">
+<div style="background:var(--navy);padding:28px"><div style="font-size:12px;color:var(--cream-dim);margin-bottom:10px;letter-spacing:0.05em">日時</div><div style="font-family:'Noto Serif JP',serif;font-size:18px;font-weight:700;color:var(--cream)">2026年9月12日（土）・13日（日）</div></div>
+<div style="background:var(--navy);padding:28px"><div style="font-size:12px;color:var(--cream-dim);margin-bottom:10px;letter-spacing:0.05em">会場</div><div style="font-family:'Noto Serif JP',serif;font-size:18px;font-weight:700;color:var(--cream)">モーションキャプチャルーム／学習支援センター</div></div>
+<div style="background:var(--navy);padding:28px"><div style="font-size:12px;color:var(--cream-dim);margin-bottom:10px;letter-spacing:0.05em">対象</div><div style="font-family:'Noto Serif JP',serif;font-size:18px;font-weight:700;color:var(--cream)">本学学生、教員、一般来場者（受験生・保護者など）</div></div>
+<div style="background:var(--navy);padding:28px"><div style="font-size:12px;color:var(--cream-dim);margin-bottom:10px;letter-spacing:0.05em">主催</div><div style="font-family:'Noto Serif JP',serif;font-size:18px;font-weight:700;color:var(--cream)">教職学連絡会</div></div>
 </div>
 </div>
 </section>
 
-<footer style="position:relative;z-index:2;padding:36px 32px;background:oklch(0.97 0.01 90);border-top:1px solid oklch(0.7 0.02 250 / 0.5);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:oklch(0.5 0.02 250)">
+<footer style="position:relative;z-index:2;padding:36px 32px;background:var(--navy-deep);border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--cream-dim)">
 <div>© 2026 TID Tech Expo / Crafted by rin, on behalf of 教職学連絡会</div>
 <div style="display:flex;gap:16px">
-<a href="exhibitors.html" style="color:oklch(0.5 0.02 250)">出展者の方へ</a>
-<a href="#" style="color:oklch(0.5 0.02 250)">▲ ページ上部へ戻る</a>
+<a href="exhibitors.html" style="color:var(--cream-dim)">出展者の方へ</a>
+<a href="#" style="color:var(--cream-dim)">▲ ページ上部へ戻る</a>
 </div>
 </footer>
 
 </div>
-
-<script>
-(function () {
-  const canvas = document.getElementById('hero-canvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const dpr = Math.min(window.devicePixelRatio || 1, 2);
-
-  const { Engine, Bodies, Body, Composite } = Matter;
-  const engine = Engine.create();
-  engine.gravity.y = 1;
-  engine.enableSleeping = true;
-  const world = engine.world;
-
-  const groundYFrac = 0.86;
-  let groundBody = null, leftWall = null, rightWall = null;
-
-  const resize = () => {
-    const cw = window.innerWidth, ch = window.innerHeight;
-    canvas.width = cw * dpr;
-    canvas.height = ch * dpr;
-    const w = canvas.width, h = canvas.height;
-    const groundY = h * groundYFrac;
-    if (groundBody) Composite.remove(world, [groundBody, leftWall, rightWall]);
-    groundBody = Bodies.rectangle(w / 2, groundY + 50 * dpr, w * 2, 100 * dpr, { isStatic: true, friction: 0.7 });
-    leftWall = Bodies.rectangle(-20 * dpr, h / 2, 40 * dpr, h * 3, { isStatic: true });
-    rightWall = Bodies.rectangle(w + 20 * dpr, h / 2, 40 * dpr, h * 3, { isStatic: true });
-    Composite.add(world, [groundBody, leftWall, rightWall]);
-  };
-  resize();
-  window.addEventListener('resize', resize);
-
-  const palettes = [200, 340, 140, 60, 280, 25];
-  const kinds = ['chip', 'gear', 'satellite', 'battery'];
-  let bodyList = [];
-  const meta = new Map();
-  const randomSpec = () => ({
-    hue: palettes[Math.floor(Math.random() * palettes.length)],
-    kind: kinds[Math.floor(Math.random() * kinds.length)]
-  });
-  let nextSpec = randomSpec();
-  const previewCanvas = document.getElementById('next-preview');
-  let pctx = null;
-  if (previewCanvas) {
-    previewCanvas.width = 40 * dpr;
-    previewCanvas.height = 40 * dpr;
-    pctx = previewCanvas.getContext('2d');
-  }
-  const drawPreview = () => {
-    if (!pctx) return;
-    pctx.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
-    drawBlock(pctx, previewCanvas.width / 2, previewCanvas.height / 2, 0, 1, nextSpec.hue, nextSpec.kind, 1);
-  };
-  setTimeout(drawPreview, 0);
-  const spawn = (x) => {
-    const { hue, kind } = nextSpec;
-    const size = 0.85 + Math.random() * 0.35;
-    const s = 15 * dpr;
-    const bw = s * 1.5 * size, bh = s * 1.2 * size;
-    const body = Bodies.rectangle(x, -40 * dpr, bw, bh, {
-      friction: 0.6,
-      frictionAir: 0.01,
-      restitution: 0.2,
-      angle: (Math.random() - 0.5) * 0.3
-    });
-    Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.15);
-    meta.set(body.id, { hue, kind, size });
-    Composite.add(world, body);
-    bodyList.push(body);
-    if (bodyList.length > 150) {
-      const old = bodyList.shift();
-      meta.delete(old.id);
-      Composite.remove(world, old);
-    }
-    nextSpec = randomSpec();
-    drawPreview();
-  };
-  const onClick = (e) => {
-    const r = canvas.getBoundingClientRect();
-    spawn((e.clientX - r.left) * dpr);
-  };
-  canvas.addEventListener('click', onClick);
-  const r0 = canvas.getBoundingClientRect();
-  const seedBaseX = r0.width * 0.82 * dpr;
-  [0, 1, 2, 3, 4].forEach((i) => {
-    setTimeout(() => spawn(seedBaseX + (Math.random() - 0.5) * 20 * dpr), 200 + i * 220);
-  });
-
-  const drawBlock = (targetCtx, x, y, rot, squash, hue, kind, sz) => {
-    const ctx = targetCtx;
-    ctx.save();
-    ctx.translate(x, y);
-    ctx.rotate(rot);
-    ctx.scale(sz / squash, sz * squash);
-    const s = 15 * dpr;
-    ctx.lineCap = 'round'; ctx.lineJoin = 'round';
-    const ink = `oklch(0.32 0.05 ${hue})`;
-    const face = `oklch(0.78 0.19 ${hue})`;
-    const side = `oklch(0.66 0.17 ${hue})`;
-    const accent = `oklch(0.94 0.03 ${hue})`;
-    ctx.strokeStyle = ink; ctx.lineWidth = 2 * dpr;
-    const bw = s * 1.5, bh = s * 1.2, bd = s * 0.4;
-    ctx.fillStyle = side;
-    ctx.beginPath(); ctx.moveTo(-bw/2, -bh/2); ctx.lineTo(-bw/2+bd, -bh/2-bd*0.6); ctx.lineTo(-bw/2+bd, bh/2-bd*0.6); ctx.lineTo(-bw/2, bh/2); ctx.closePath(); ctx.fill(); ctx.stroke();
-    ctx.fillStyle = face;
-    ctx.beginPath(); ctx.rect(-bw/2, -bh/2, bw, bh); ctx.fill(); ctx.stroke();
-
-    if (kind === 'chip') {
-      ctx.strokeStyle = ink; ctx.lineWidth = 1.6*dpr;
-      for (let i = -1; i <= 1; i++) { ctx.beginPath(); ctx.moveTo(-bw*0.35, i*bh*0.28); ctx.lineTo(bw*0.35, i*bh*0.28); ctx.stroke(); }
-      ctx.fillStyle = accent;
-      ctx.beginPath(); ctx.rect(-bw*0.22, -bh*0.22, bw*0.44, bh*0.44); ctx.fill(); ctx.stroke();
-      [-1,1].forEach(sx => [-1,0,1].forEach(sy => { ctx.beginPath(); ctx.moveTo(sx*bw*0.22, sy*bh*0.15); ctx.lineTo(sx*bw*0.42, sy*bh*0.15); ctx.stroke(); }));
-    } else if (kind === 'gear') {
-      ctx.fillStyle = accent;
-      const r = bh*0.32;
-      ctx.beginPath();
-      for (let i = 0; i < 8; i++) { const a = (i/8) * Math.PI*2; const ox = Math.cos(a)*r*1.35, oy = Math.sin(a)*r*1.35; ctx.rect(ox-r*0.16, oy-r*0.16, r*0.32, r*0.32); }
-      ctx.fill(); ctx.stroke();
-      ctx.beginPath(); ctx.arc(0, 0, r, 0, Math.PI*2); ctx.fill(); ctx.stroke();
-      ctx.fillStyle = ink; ctx.beginPath(); ctx.arc(0, 0, r*0.32, 0, Math.PI*2); ctx.fill();
-    } else if (kind === 'satellite') {
-      ctx.strokeStyle = ink; ctx.lineWidth = 2*dpr;
-      ctx.fillStyle = accent;
-      ctx.beginPath(); ctx.arc(0, -bh*0.05, bh*0.28, Math.PI*0.15, Math.PI*0.85); ctx.lineTo(0,-bh*0.05); ctx.closePath(); ctx.fill(); ctx.stroke();
-      ctx.beginPath(); ctx.moveTo(0,-bh*0.05); ctx.lineTo(0, bh*0.35); ctx.stroke();
-      ctx.fillStyle = ink; ctx.beginPath(); ctx.arc(0, bh*0.05, bh*0.06, 0, Math.PI*2); ctx.fill();
-      ctx.beginPath(); ctx.arc(bw*0.28, bh*0.05, bh*0.06, 0, Math.PI*2); ctx.stroke();
-    } else {
-      ctx.fillStyle = accent;
-      ctx.beginPath(); ctx.rect(-bw*0.3, -bh*0.05, bw*0.6, bh*0.35); ctx.fill(); ctx.stroke();
-      ctx.beginPath(); ctx.rect(-bw*0.12, -bh*0.22, bw*0.24, bh*0.17); ctx.fill(); ctx.stroke();
-      ctx.strokeStyle = ink; ctx.lineWidth = 1.4*dpr;
-      for (let i=-1;i<=1;i++){ ctx.beginPath(); ctx.moveTo(i*bw*0.15, -bh*0.02); ctx.lineTo(i*bw*0.15, bh*0.27); ctx.stroke(); }
-    }
-
-    ctx.fillStyle = ink;
-    [[-1,-1],[1,-1],[1,1],[-1,1]].forEach(([sx,sy]) => { ctx.beginPath(); ctx.arc(sx*bw*0.42, sy*bh*0.38, bh*0.045, 0, Math.PI*2); ctx.fill(); });
-
-    ctx.strokeStyle = ink; ctx.lineWidth = 1.8*dpr;
-    ctx.beginPath(); ctx.moveTo(bw*0.3, -bh/2); ctx.lineTo(bw*0.3, -bh/2 - s*0.35); ctx.stroke();
-    ctx.fillStyle = accent;
-    ctx.beginPath(); ctx.arc(bw*0.3, -bh/2 - s*0.4, s*0.13, 0, Math.PI*2); ctx.fill(); ctx.stroke();
-    ctx.restore();
-  };
-
-  let lastTime = performance.now();
-  const draw = () => {
-    const now = performance.now();
-    const delta = Math.min(now - lastTime, 33);
-    lastTime = now;
-    Engine.update(engine, delta);
-
-    const w = canvas.width, h = canvas.height;
-    ctx.clearRect(0, 0, w, h);
-    ctx.strokeStyle = 'oklch(0.85 0.03 230 / 0.6)'; ctx.lineWidth = 1 * dpr;
-    const grid = 26 * dpr;
-    for (let gx = 0; gx < w; gx += grid) { ctx.beginPath(); ctx.moveTo(gx, 0); ctx.lineTo(gx, h); ctx.stroke(); }
-    for (let gy = 0; gy < h; gy += grid) { ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(w, gy); ctx.stroke(); }
-    const groundY = h * groundYFrac;
-    ctx.strokeStyle = 'oklch(0.55 0.05 230 / 0.8)'; ctx.lineWidth = 2*dpr;
-    ctx.beginPath(); ctx.moveTo(0, groundY); ctx.lineTo(w, groundY); ctx.stroke();
-
-    bodyList.forEach(body => {
-      const m = meta.get(body.id);
-      if (!m) return;
-      drawBlock(ctx, body.position.x, body.position.y, body.angle, 1, m.hue, m.kind, m.size);
-    });
-
-    requestAnimationFrame(draw);
-  };
-  draw();
-})();
-</script>
 </body>
 </html>
