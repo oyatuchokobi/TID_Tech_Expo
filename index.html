@@ -180,9 +180,10 @@ html{scroll-behavior:smooth}
 <div class="eyebrow" style="margin-bottom:14px">MAP</div>
 <h2 class="section-title">会場マップ</h2>
 <p style="font-size:14px;line-height:1.9;color:var(--cream-dim);margin:0 0 32px">出展ブースは「モーションキャプチャルーム」と「学習支援センター」の2会場に分かれています。当日はマップを参考にお越しください。</p>
-<div style="border:1px solid var(--line);padding:clamp(16px,3vw,28px);background:var(--navy-deep)">
-<img src="assets/floor-map.png" alt="TID Tech Expo 2026 会場マップ・ブース配置図" style="display:block;width:100%;height:auto">
+<div style="border:1px solid var(--line);padding:clamp(16px,3vw,28px);background:var(--navy-deep);display:flex;justify-content:center">
+<img src="assets/floor-map.png" alt="TID Tech Expo 2026 会場マップ・ブース配置図" onclick="openMapLightbox()" style="display:block;width:100%;max-width:420px;height:auto;cursor:zoom-in">
 </div>
+<p style="font-size:12px;color:var(--cream-dim);text-align:center;margin:10px 0 0">画像をクリックすると拡大表示されます</p>
 </div>
 </section>
 
@@ -208,5 +209,16 @@ html{scroll-behavior:smooth}
 </footer>
 
 </div>
+
+<div id="map-lightbox" onclick="closeMapLightbox()" style="display:none;position:fixed;inset:0;z-index:100;background:oklch(0.1 0.02 255 / 0.9);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:24px;cursor:zoom-out">
+<button onclick="closeMapLightbox()" aria-label="閉じる" style="position:absolute;top:20px;right:24px;background:none;border:1px solid var(--line);color:var(--cream);width:40px;height:40px;border-radius:50%;font-size:20px;cursor:pointer;line-height:1">✕</button>
+<img src="assets/floor-map.png" alt="TID Tech Expo 2026 会場マップ・ブース配置図（拡大）" style="display:block;max-width:min(90vw,700px);max-height:90vh;width:auto;height:auto;border:1px solid var(--line);box-shadow:0 20px 60px oklch(0.1 0.02 255 / 0.6)">
+</div>
+
+<script>
+function openMapLightbox(){document.getElementById('map-lightbox').style.display='flex';document.body.style.overflow='hidden'}
+function closeMapLightbox(){document.getElementById('map-lightbox').style.display='none';document.body.style.overflow=''}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMapLightbox()});
+</script>
 </body>
 </html>
